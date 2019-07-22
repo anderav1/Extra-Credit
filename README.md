@@ -1,12 +1,12 @@
 ## Overview
 
-You will be using the `BaseServiceClient` and `UrlProvider` created in class, alongside custom decoding initializers for the types provided, to create two service clients for various [PokéApi](https://pokeapi.co/docs/v2.html/) endpoints. Follow the instructions listed below to solve the problems listed in this project.
+You will be using the `BaseServiceClient` and `UrlProvider` created in class, alongside custom decoding initializers for the types provided, to create two service clients for various [PokéApi](https://pokeapi.co/docs/v2.html/) endpoints. Follow the instructions listed below to solve the problems given in this project.
 
 ---
 
 ## Problems 1-4: `BerryServiceClient`
 
-Work for these problems should be completed in the `BerryServiceClient` class provided.
+Work for these problems should be completed in the `BerryServiceClient` class provided in the **Service** directory of this project.
 
 ### Problem 1 (10 points)
 
@@ -43,7 +43,7 @@ Work for these problems should be completed in the `BerryServiceClient` class pr
 
 ## Problems 5-8: `AbilityServiceClient`
 
-Work for these problems should be completed in the `AbilityServiceClient` class provided.
+Work for these problems should be completed in the `AbilityServiceClient` class provided in the **Service** directory of this project.
 
 ### Problem 5 (16 points)
 
@@ -84,6 +84,7 @@ Work for these problems should be completed in the `AbilityServiceClient` class 
 
 ## Reference
 
+- The `NameUrlPair` struct can be found in the **Utilities** directory of this project
 - Documentation for the endpoints can be found at [PokéApi](https://pokeapi.co/docs/v2.html/)'s official website. The endpoints include [berry](https://pokeapi.co/docs/v2.html/#berries-section) and [ability](https://pokeapi.co/docs/v2.html/#abilities)
 - A **Postman Collection** consisting of up-to-date versions of all calls made to [PokéApi](https://pokeapi.co/docs/v2.html/) in class and for this assignment is included in this project repository
     - [Postman](https://www.getpostman.com/) is not a requirement. However, it can be downloaded [here](https://www.getpostman.com/downloads/) for any students wishing to utilize this handy piece of **free** software.
