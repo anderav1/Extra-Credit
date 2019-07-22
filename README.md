@@ -100,4 +100,4 @@ Work for these problems should be completed in the `AbilityServiceClient` class 
 - 60 Points available overall
 - This assignment will be factored into overall project scores at the end of the semester (obviously only as extra credit)
 - No late submissions will be accepted for this assignment. It must be submitted no later than **Monday August 5th at 5:30 PM**, no exceptions
-- Problems will be graded as all-or-nothing. If it works, you get the points. If it doesn't, sorry 'boutcha
+- Individual problems will be graded as all-or-nothing. If it works, you get the points. If it doesn't, sorry 'boutcha
