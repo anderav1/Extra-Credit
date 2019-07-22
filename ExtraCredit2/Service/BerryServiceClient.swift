@@ -9,11 +9,13 @@ struct BerryList: Decodable {
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
-        case items
+        case items = "results"
     }
     
     init(from decoder: Decoder) {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
         
+        let items = try? values?.decode([NameUrlPair].self, forKey: .items)
     }
 }
 
@@ -88,7 +90,8 @@ final class BerryServiceClient {
         let parameters = ["offset": "\(0)", "limit": "\(64)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
-        // Write function body here
+        // Write function body here (will make service call here)
+        // make service call, if no error, parse the data
     }
     
     /*** 4 ***/
