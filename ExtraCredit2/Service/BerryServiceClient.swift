@@ -2,16 +2,6 @@ import Foundation
 
 #warning("Problems 1-4")
 
-final class BerryServiceClient {
-    private let baseServceClient: BaseServiceClient
-    private let urlProvider: UrlProvider
-    
-    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
-        self.baseServceClient = baseServceClient
-        self.urlProvider = urlProvider
-    }
-}
-
 /*** 1 ***/
 
 struct BerryList: Decodable {
@@ -49,7 +39,15 @@ struct BerryFlavorMap: Decodable {
 //typealias BerryListResult =
 //typealias BerryResult =
 
-extension BerryServiceClient {
+final class BerryServiceClient {
+    private let baseServceClient: BaseServiceClient
+    private let urlProvider: UrlProvider
+    
+    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
+        self.baseServceClient = baseServceClient
+        self.urlProvider = urlProvider
+    }
+
     /*** 3 ***/
     
     // Complete problem 2 before beginning this section so that the real function signature may be un-commented

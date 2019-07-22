@@ -2,16 +2,6 @@ import Foundation
 
 #warning("Problems 5-8")
 
-final class AbilityServiceClient {
-    private let baseServceClient: BaseServiceClient
-    private let urlProvider: UrlProvider
-    
-    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
-        self.baseServceClient = baseServceClient
-        self.urlProvider = urlProvider
-    }
-}
-
 /*** 5 ***/
 
 struct AbilityList: Decodable {
@@ -78,7 +68,15 @@ struct PokemonForAbility: Decodable {
 //typealias AbilityListResult =
 //typealias AbilityResult =
 
-extension AbilityServiceClient {
+final class AbilityServiceClient {
+    private let baseServceClient: BaseServiceClient
+    private let urlProvider: UrlProvider
+    
+    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
+        self.baseServceClient = baseServceClient
+        self.urlProvider = urlProvider
+    }
+
     /*** 7 ***/
     
     // Complete problem 6 before beginning this section so that the real function signature may be un-commented
