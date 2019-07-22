@@ -82,7 +82,7 @@ extension AbilityServiceClient {
     /*** 7 ***/
     
     // Complete problem 6 before beginning this section so that the real function signature may be un-commented
-    func getAbilityList() {//(completion: @escaping (AbilityListResult) ->()) {
+    func getAbilityList() {//(completion: @escaping (AbilityListResult) -> ()) {
         let pathComponents = ["ability"]
         let parameters = ["offset": "\(0)", "limit": "\(293)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
@@ -93,7 +93,7 @@ extension AbilityServiceClient {
     /*** 8 ***/
     
     // Complete problem 6 before beginning this section so that the real function signature may be un-commented
-    func getAbility(id: Int) {//(id: Int, completion: @escaping (AbilityResult) ->()) {
+    func getAbility(id: Int) {//(id: Int, completion: @escaping (AbilityResult) -> ()) {
         let pathComponents = ["ability", "\(id)"]
         let parameters: [String: String] = [:]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
