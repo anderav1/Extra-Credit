@@ -27,17 +27,17 @@ Work for these problems should be completed in the `BerryServiceClient` class pr
 
 ### Problem 3 (7 points)
 
-- Complete the function `getBerryList` to utilize `BaseServiceClient` to retrive a `BerryList` object from the specified `URL`
+- Complete the function `getBerryList` to utilize `BaseServiceClient` to retrieve a `BerryList` object from the specified `URL`
 - Guidelines:
-    - The function should accept a `completion` argument consisting of the lambda `@escaping (BerryListResult) -> ()`
-    - The function should attempt to decode a `BerryList` object from the data returned after `BaseServiceClient` completes a **get**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
+    - The function should accept a `completion` argument consisting of a closure `@escaping (BerryListResult) -> ()`
+    - The function should attempt to decode a `BerryList` object from the data returned after `BaseServiceClient` completes a **get request**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
 
 ### Problem 4 (7 points)
 
-- Complete the function `getBerry` to utilize `BaseServiceClient` to retrive a `Berry` object from the specified `URL`
+- Complete the function `getBerry` to utilize `BaseServiceClient` to retrieve a `Berry` object from the specified `URL`
 - Guidelines:
-    - The function should accept a `completion` argument consisting of the lambda `@escaping (BerryResult) -> ()`
-    - The function should attempt to decode a `Berry` object from the data returned after `BaseServiceClient` completes a **get**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
+    - The function should accept a `completion` argument consisting of a closure `@escaping (BerryResult) -> ()`
+    - The function should attempt to decode a `Berry` object from the data returned after `BaseServiceClient` completes a **get request**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
 
 ---
 
@@ -68,17 +68,17 @@ Work for these problems should be completed in the `AbilityServiceClient` class 
 
 ### Problem 7 (7 points)
 
-- Complete the function `getAbilityList` to utilize `BaseServiceClient` to retrive a `AbilityList` object from the specified `URL`
+- Complete the function `getAbilityList` to utilize `BaseServiceClient` to retrieve a `AbilityList` object from the specified `URL`
 - Guidelines:
-    - The function should accept a `completion` argument consisting of the lambda `@escaping (AbilityListResult) -> ()`
-    - The function should attempt to decode a `AbilityList` object from the data returned after `BaseServiceClient` completes a **get**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
+    - The function should accept a `completion` argument consisting of a closure `@escaping (AbilityListResult) -> ()`
+    - The function should attempt to decode a `AbilityList` object from the data returned after `BaseServiceClient` completes a **get request**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error
 
 ### Problem 8 (7 points)
 
-- Complete the function `getAbility` to utilize `BaseServiceClient` to retrive a `Ability` object from the specified `URL`
+- Complete the function `getAbility` to utilize `BaseServiceClient` to retrieve a `Ability` object from the specified `URL`
 - Guidelines:
-    - The function should accept a `completion` argument consisting of the lambda `@escaping (AbilityResult) -> ()`
-    - The function should attempt to decode a `Ability` object from the data returned after `BaseServiceClient` completes a **get**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error  
+    - The function should accept a `completion` argument consisting of a closure `@escaping (AbilityResult) -> ()`
+    - The function should attempt to decode a `Ability` object from the data returned after `BaseServiceClient` completes a **get request**. The function should call `completion` with a `.failure()` case in the event the decoding is unsuccessful, and with a `.success()` case in the event the decoding succeeds. If the service call fails, complete with the returned error  
 
 ---
 
