@@ -8,6 +8,13 @@ struct BerryList: Decodable {
     let items: [URL]              //let results: [NameUrlPair]
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case items
+    }
+    
+    init(from decoder: Decoder) {
+        
+    }
 }
 
 struct Berry: Decodable {
@@ -24,6 +31,23 @@ struct Berry: Decodable {
     let naturalGiftType: String     //NameUrlPair
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case growthTime = "growth_time"
+        case maxHarvest = "max_harvest"
+        case naturalGiftPower = "natural_gift_power"
+        case size
+        case smoothness
+        case soilDryness = "soil_dryness"
+        case firmness
+        case flavors
+        case item
+        case naturalGiftType = "natural_gift_type"
+    }
+    
+    init(from decoder: Decoder) {
+        
+    }
 }
 
 struct BerryFlavorMap: Decodable {
@@ -31,6 +55,14 @@ struct BerryFlavorMap: Decodable {
     let flavor: String              //NameUrlPair
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case potency
+        case flavor
+    }
+    
+    init(from decoder: Decoder) {
+        
+    }
 }
 
 /*** 2 ***/
