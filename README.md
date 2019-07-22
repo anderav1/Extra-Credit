@@ -15,7 +15,7 @@ Work for these problems should be completed in the `BerryServiceClient` class pr
 - Guidelines:
     - **DO NOT** change the names or types of any of properties of the structs provided
     - For `BerryList`; `items` should be _mapped_ to the `URL` values derived from decoding the `results` field of the data as an `[NameUrlPair]`
-    - For `Berry`; `firmness`, `item`, and `naturalGiftType` should be decoded as a `NameUrlPair` and set using the `name` property of the decoded object
+    - For `Berry`; `firmness`, `item`, and `naturalGiftType` should each be decoded as a `NameUrlPair` and set using the `name` property of the decoded object
     - For `BerryFlavorMap`; `flavor` should be decoded as a `NameUrlPair` and set using the `name` property of the decoded object
 
 ### Problem 2 (3 points)
