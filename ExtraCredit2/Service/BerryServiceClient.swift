@@ -15,7 +15,8 @@ struct BerryList: Decodable {
     init(from decoder: Decoder) {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
         
-        let items = try? values?.decode([NameUrlPair].self, forKey: .items)
+        let itemPairs = try? values?.decode([NameUrlPair].self, forKey: .items)
+        items = itemPairs.
     }
 }
 
