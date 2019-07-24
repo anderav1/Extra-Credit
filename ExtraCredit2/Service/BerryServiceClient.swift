@@ -12,11 +12,12 @@ struct BerryList: Decodable {
         case items = "results"
     }
     
-    init(from decoder: Decoder) {
-        let values = try? decoder.container(keyedBy: CodingKeys.self)
+    #warning("Was there a different guard implementation we were supposed to use?")
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        let itemPairs = try? values?.decode([NameUrlPair].self, forKey: .items)
-        items = itemPairs.
+        let itemPairs = try values.decode([NameUrlPair].self, forKey: .items)
+        items = itemPairs.map { return $0.url }
     }
 }
 
@@ -48,8 +49,27 @@ struct Berry: Decodable {
         case naturalGiftType = "natural_gift_type"
     }
     
-    init(from decoder: Decoder) {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
+        id = try values.decode(Int.self, forKey: .id)
+        growthTime = try values.decode(Int.self, forKey: .growthTime)
+        maxHarvest = try values.decode(Int.self, forKey: .maxHarvest)
+        naturalGiftPower = try values.decode(Int.self, forKey: .naturalGiftPower)
+        size = try values.decode(Int.self, forKey: .size)
+        smoothness = try values.decode(Int.self, forKey: .smoothness)
+        soilDryness = try values.decode(Int.self, forKey: .soilDryness)
+        
+        let firmnessPair = try values.decode(NameUrlPair.self, forKey: .firmness)
+        firmness = firmnessPair.name
+        
+        flavors = try values.decode([BerryFlavorMap].self, forKey: .flavors)
+        
+        let itemPair = try values.decode(NameUrlPair.self, forKey: .item)
+        item = itemPair.name
+        
+        let naturalGiftTypePair = try values.decode(NameUrlPair.self, forKey: .naturalGiftType)
+        naturalGiftType = naturalGiftTypePair.name
     }
 }
 
@@ -63,23 +83,39 @@ struct BerryFlavorMap: Decodable {
         case flavor
     }
     
-    init(from decoder: Decoder) {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
+        potency = try values.decode(Int.self, forKey: .potency)
+        
+        let flavorPair = try values.decode(NameUrlPair.self, forKey: .flavor)
+        flavor = flavorPair.name
     }
 }
 
 /*** 2 ***/
 
 // Complete result typealias' here
-//typealias BerryListResult =
-//typealias BerryResult =
+typealias BerryListResult = Result<Data, BerryListError>
+typealias BerryResult = Result<Data, BerryError>
+
+#warning("Is this error struct correct?")
+struct BerryListError: Error {
+    let message: String
+    let code: Int?
+}
+
+struct BerryError: Error {
+    let message: String
+    let code: Int?
+}
 
 final class BerryServiceClient {
-    private let baseServceClient: BaseServiceClient
+    private let baseServiceClient: BaseServiceClient
     private let urlProvider: UrlProvider
     
-    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
-        self.baseServceClient = baseServceClient
+    init(baseServiceClient: BaseServiceClient, urlProvider: UrlProvider) {
+        self.baseServiceClient = baseServiceClient
         self.urlProvider = urlProvider
     }
 
