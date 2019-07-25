@@ -96,19 +96,8 @@ struct BerryFlavorMap: Decodable {
 /*** 2 ***/
 
 // Complete result typealias' here
-typealias BerryListResult = Result<Data, BerryListError>
-typealias BerryResult = Result<Data, BerryError>
-
-#warning("Is this error struct correct?")
-struct BerryListError: Error {
-    let message: String
-    let code: Int?
-}
-
-struct BerryError: Error {
-    let message: String
-    let code: Int?
-}
+typealias BerryListResult = Result<BerryList, ServiceCallError>
+typealias BerryResult = Result<Berry, ServiceCallError>
 
 final class BerryServiceClient {
     private let baseServiceClient: BaseServiceClient
@@ -122,13 +111,25 @@ final class BerryServiceClient {
     /*** 3 ***/
     
     // Complete problem 2 before beginning this section so that the real function signature may be un-commented
-    func getBerryList() {//(completion: @escaping (BerryListResult) -> ()) {
+    func getBerryList(completion: @escaping (BerryListResult) -> ()) {
         let pathComponents = ["berry"]
         let parameters = ["offset": "\(0)", "limit": "\(64)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here (will make service call here)
         // make service call, if no error, parse the data
+        baseServiceClient.get(from: url) { [weak self] result in
+            switch result {
+            case .success(let data):
+                guard let berryList = try? JSONDecoder().decode(BerryList.self, from: data) else {
+                    completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
+                    return
+                }
+                
+            case .failure(let error):
+                <#code#>
+            }
+        }
     }
     
     /*** 4 ***/
