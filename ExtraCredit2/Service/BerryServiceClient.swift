@@ -138,7 +138,7 @@ final class BerryServiceClient {
     /*** 4 ***/
     
     // Complete problem 2 before beginning this section so that the real function signature may be un-commented
-    func getBerry(id: Int) {//(id: Int, completion: @escaping (BerryResult) -> ()) {
+    func getBerry(id: Int, completion: @escaping (BerryResult) -> ()) {
         let pathComponents = ["berry", "\(id)"]
         let parameters: [String: String] = [:]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
