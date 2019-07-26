@@ -118,16 +118,19 @@ final class BerryServiceClient {
         
         // Write function body here (will make service call here)
         // make service call, if no error, parse the data
-        baseServiceClient.get(from: url) { [weak self] result in
+        #warning("Is this service call implementation correct?")
+        baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
                 guard let berryList = try? JSONDecoder().decode(BerryList.self, from: data) else {
                     completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
                     return
                 }
+                completion(.success(berryList))
                 
             case .failure(let error):
-                <#code#>
+                completion(.failure(ServiceCallError(message: error.message, code: error.code)))
+                return
             }
         }
     }
@@ -141,5 +144,19 @@ final class BerryServiceClient {
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here
+        baseServiceClient.get(from: url) { result in
+            switch result {
+            case .success(let data):
+                guard let berry = try? JSONDecoder().decode(Berry.self, from: data) else {
+                    completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
+                    return
+                }
+                completion(.success(berry))
+                
+            case .failure(let error):
+                completion(.failure(ServiceCallError(message: error.message, code: error.code)))
+                return
+            }
+        }
     }
 }
