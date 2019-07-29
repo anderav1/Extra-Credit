@@ -8,6 +8,16 @@ struct AbilityList: Decodable {
     let items: [URL]              //let results: [NameUrlPair]
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case items = "results"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let itemPairs = try values.decode([NameUrlPair].self, forKey: .items)
+        items = itemPairs.map { $0.url }
+    }
 }
 
 struct Ability: Decodable {
@@ -22,6 +32,34 @@ struct Ability: Decodable {
     let pokemon: [PokemonForAbility]
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case isMainSeries = "is_main_series"
+        case generation
+        case names
+        case effectEntries = "effect_entries"
+        case effectChanges = "effect_changes"
+        case flavorTextEntries = "flavor_text_entries"
+        case pokemon
+    }
+    
+    init(for decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try values.decode(Int.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        isMainSeries = try values.decode(Bool.self, forKey: .isMainSeries)
+        
+        let generationPair = try values.decode(NameUrlPair.self, forKey: .generation)
+        generation = generationPair.name
+        
+        names = try values.decode([Name].self, forKey: .names)
+        effectEntries = try values.decode([EffectEntry].self, forKey: .effectEntries)
+        effectChanges = try values.decode([EffectChange].self, forKey: .effectChanges)
+        flavorTextEntries = try values.decode([FlavorTextEntry].self, forKey: .flavorTextEntries)
+        pokemon = try values.decode([PokemonForAbility].self, forKey: .pokemon)
+    }
 }
 
 struct Name: Decodable {
@@ -29,6 +67,17 @@ struct Name: Decodable {
     let value: String               //let name: String
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case language
+        case value = "name"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        language = try values.decode(String.self, forKey: .language)
+        value = try values.decode(String.self, forKey: .value)
+    }
 }
 
 struct EffectEntry: Decodable {
@@ -37,6 +86,22 @@ struct EffectEntry: Decodable {
     let shortEffect: String?        // HINT: - decodeIfPresent
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case effect
+        case language
+        case shortEffect = "short_effect"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        effect = try values.decode(String.self, forKey: .effect)
+        
+        let languagePair = try values.decode(NameUrlPair.self, forKey: .language)
+        language = languagePair.name
+        
+        shortEffect = try values.decodeIfPresent(String.self, forKey: .shortEffect)
+    }
 }
 
 struct EffectChange: Decodable {
@@ -44,6 +109,19 @@ struct EffectChange: Decodable {
     let versionGroup: String        //NameUrlPair
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case effectEntries = "effect_entries"
+        case versionGroup = "version_group"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        effectEntries = try values.decode([EffectEntry].self, forKey: .effectEntries)
+        
+        let versionGroupPair = try values.decode(NameUrlPair.self, forKey: .versionGroup)
+        versionGroup = versionGroupPair.name
+    }
 }
 
 struct FlavorTextEntry: Decodable {
@@ -52,6 +130,23 @@ struct FlavorTextEntry: Decodable {
     let versionGroup: String        //NameUrlPair
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case flavorText = "flavor_text"
+        case language
+        case versionGroup = "version_group"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        flavorText = try values.decode(String.self, forKey: .flavorText)
+        
+        let languagePair = try values.decode(NameUrlPair.self, forKey: .language)
+        language = languagePair.name
+        
+        let versionGroupPair = try values.decode(NameUrlPair.self, forKey: .versionGroup)
+        versionGroup = versionGroupPair.name
+    }
 }
 
 struct PokemonForAbility: Decodable {
@@ -60,42 +155,84 @@ struct PokemonForAbility: Decodable {
     let slot: Int
     
     // Write CodingKeys and custom init(from decoder: Decoder) here
+    private enum CodingKeys: String, CodingKey {
+        case isHidden = "is_hidden"
+        case pokemon
+        case slot
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        isHidden = try values.decode(Bool.self, forKey: .isHidden)
+        
+        let pokemonPair = try values.decode(NameUrlPair.self, forKey: .pokemon)
+        pokemon = pokemonPair.name
+        
+        slot = try values.decode(Int.self, forKey: .slot)
+    }
 }
 
 /*** 6 ***/
 
 // Complete result typealias' here
-//typealias AbilityListResult =
-//typealias AbilityResult =
+typealias AbilityListResult = Result<AbilityList, ServiceCallError>
+typealias AbilityResult = Result<Ability, ServiceCallError>
 
 final class AbilityServiceClient {
-    private let baseServceClient: BaseServiceClient
+    private let baseServiceClient: BaseServiceClient
     private let urlProvider: UrlProvider
     
-    init(baseServceClient: BaseServiceClient, urlProvider: UrlProvider) {
-        self.baseServceClient = baseServceClient
+    init(baseServiceClient: BaseServiceClient, urlProvider: UrlProvider) {
+        self.baseServiceClient = baseServiceClient
         self.urlProvider = urlProvider
     }
 
     /*** 7 ***/
     
-    // Complete problem 6 before beginning this section so that the real function signature may be un-commented
-    func getAbilityList() {//(completion: @escaping (AbilityListResult) -> ()) {
+    func getAbilityList(completion: @escaping (AbilityListResult) -> ()) {
         let pathComponents = ["ability"]
         let parameters = ["offset": "\(0)", "limit": "\(293)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here
+        baseServiceClient.get(from: url) { result in
+            switch result {
+            case .success(let data):
+                guard let abilityList = try? JSONDecoder().decode(AbilityList.self, from: data) else {
+                    completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
+                    return
+                }
+                completion(.success(abilityList))
+                
+            case .failure(let error):
+                completion(.failure(error))
+                return
+            }
+        }
     }
     
     /*** 8 ***/
     
-    // Complete problem 6 before beginning this section so that the real function signature may be un-commented
-    func getAbility(id: Int) {//(id: Int, completion: @escaping (AbilityResult) -> ()) {
+    func getAbility(id: Int, completion: @escaping (AbilityResult) -> ()) {
         let pathComponents = ["ability", "\(id)"]
         let parameters: [String: String] = [:]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here
+        baseServiceClient.get(from: url) { result in
+            switch result {
+            case .success(let data):
+                guard let ability = try? JSONDecoder().decode(Ability.self, from: data) else {
+                    completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
+                    return
+                }
+                completion(.success(ability))
+                
+            case .failure(let error):
+                completion(.failure(error))
+                return
+            }
+        }
     }
 }

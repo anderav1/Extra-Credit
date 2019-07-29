@@ -14,17 +14,6 @@ import Foundation
 let berryListPath = "/Users/avabc5/Desktop/Extra-Credit/ExtraCredit2/Reference/berry_list.json"
 let berryListUrl = URL(fileURLWithPath: berryListPath)
 
-// in the assignment, use try? rather than do-catch blocks
-do {
-    let data = try Data(contentsOf: berryListUrl)
-    
-    //let json = JSONDecoder.decode(...)
-    let json = JSONSerialization.jsonObject(with: data, options: [])
-    print(json)
-} catch {
-    print(error)
-}
-
 
 
 
@@ -34,7 +23,7 @@ let urlProvider = UrlProvider(baseUrl: URL(string: "https://pokeapi.co/api/v2/")
 
 /*** Problems 1-4 ***/
 
-let berryServiceClient = BerryServiceClient(baseServceClient: baseServiceClient, urlProvider: urlProvider)
+let berryServiceClient = BerryServiceClient(baseServiceClient: baseServiceClient, urlProvider: urlProvider)
 
 //berryServiceClient.getBerryList { result in
 //    switch result {

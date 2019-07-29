@@ -12,7 +12,6 @@ struct BerryList: Decodable {
         case items = "results"
     }
     
-    #warning("Was there a different guard implementation we were supposed to use?")
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -110,7 +109,6 @@ final class BerryServiceClient {
 
     /*** 3 ***/
     
-    // Complete problem 2 before beginning this section so that the real function signature may be un-commented
     func getBerryList(completion: @escaping (BerryListResult) -> ()) {
         let pathComponents = ["berry"]
         let parameters = ["offset": "\(0)", "limit": "\(64)"]
@@ -118,7 +116,6 @@ final class BerryServiceClient {
         
         // Write function body here (will make service call here)
         // make service call, if no error, parse the data
-        #warning("Is this service call implementation correct?")
         baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
@@ -126,10 +123,12 @@ final class BerryServiceClient {
                     completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
                     return
                 }
+                //print(berryList)
                 completion(.success(berryList))
                 
             case .failure(let error):
-                completion(.failure(ServiceCallError(message: error.message, code: error.code)))
+                //print(error)
+                completion(.failure(error))
                 return
             }
         }
@@ -137,7 +136,6 @@ final class BerryServiceClient {
     
     /*** 4 ***/
     
-    // Complete problem 2 before beginning this section so that the real function signature may be un-commented
     func getBerry(id: Int, completion: @escaping (BerryResult) -> ()) {
         let pathComponents = ["berry", "\(id)"]
         let parameters: [String: String] = [:]
@@ -151,10 +149,12 @@ final class BerryServiceClient {
                     completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
                     return
                 }
+                //print(berry)
                 completion(.success(berry))
                 
             case .failure(let error):
-                completion(.failure(ServiceCallError(message: error.message, code: error.code)))
+                //print(error)
+                completion(.failure(error))
                 return
             }
         }
