@@ -75,7 +75,9 @@ struct Name: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        language = try values.decode(String.self, forKey: .language)
+        let languagePair = try values.decode(NameUrlPair.self, forKey: .language)
+        language = languagePair.name
+        
         value = try values.decode(String.self, forKey: .value)
     }
 }
@@ -215,9 +217,14 @@ final class AbilityServiceClient {
     /*** 8 ***/
     
     func getAbility(id: Int, completion: @escaping (AbilityResult) -> ()) {
-        let pathComponents = ["ability", "\(id)"]
-        let parameters: [String: String] = [:]
-        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
+//        let pathComponents = ["ability", "\(id)"]
+//        let parameters: [String: String] = [:]
+//        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
+//        print(url)
+        
+        guard let url = URL(string: "https://pokeapi.co/api/v2/ability/3") else {
+            return
+        }
         
         // Write function body here
         baseServiceClient.get(from: url) { result in

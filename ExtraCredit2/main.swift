@@ -11,8 +11,8 @@ import Foundation
  
  */
 
-let berryListPath = "/Users/avabc5/Desktop/Extra-Credit/ExtraCredit2/Reference/berry_list.json"
-let berryListUrl = URL(fileURLWithPath: berryListPath)
+//let abilityPath = "/Users/avabc5/Desktop/Extra-Credit/ExtraCredit2/Reference/stench.json"
+//let abilityUrl = URL(fileURLWithPath: abilityPath)
 
 
 
@@ -41,7 +41,7 @@ let berryServiceClient = BerryServiceClient(baseServiceClient: baseServiceClient
 
 /*** Problems 5-8 ***/
 
-let abilityServiceClient = AbilityServiceClient(baseServceClient: baseServiceClient, urlProvider: urlProvider)
+let abilityServiceClient = AbilityServiceClient(baseServiceClient: baseServiceClient, urlProvider: urlProvider)
 
 //abilityServiceClient.getAbilityList { result in
 //    switch result {
@@ -50,12 +50,12 @@ let abilityServiceClient = AbilityServiceClient(baseServceClient: baseServiceCli
 //    }
 //}
 //
-//abilityServiceClient.getAbility(id: 3) { result in
-//    switch result {
-//    case .success(let ability): print(ability); exit(0)
-//    case .failure(let error): print(error); exit(1)
-//    }
-//}
+abilityServiceClient.getAbility(id: 3) { result in
+    switch result {
+    case .success(let ability): print(ability); exit(0)
+    case .failure(let error): print(error); exit(1)
+    }
+}
 
 // WARNING: - DO NOT DELETE THE FOLLOWING LINE
 dispatchMain()
