@@ -217,14 +217,9 @@ final class AbilityServiceClient {
     /*** 8 ***/
     
     func getAbility(id: Int, completion: @escaping (AbilityResult) -> ()) {
-//        let pathComponents = ["ability", "\(id)"]
-//        let parameters: [String: String] = [:]
-//        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
-//        print(url)
-        
-        guard let url = URL(string: "https://pokeapi.co/api/v2/ability/3") else {
-            return
-        }
+        let pathComponents = ["ability", "\(id)"]
+        let parameters: [String: String] = [:]
+        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here
         baseServiceClient.get(from: url) { result in
