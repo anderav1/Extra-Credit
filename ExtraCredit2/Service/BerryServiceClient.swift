@@ -1,13 +1,10 @@
 import Foundation
 
-#warning("Problems 1-4")
-
 /*** 1 ***/
 
 struct BerryList: Decodable {
     let items: [URL]              //let results: [NameUrlPair]
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case items = "results"
     }
@@ -33,7 +30,6 @@ struct Berry: Decodable {
     let item: String                //NameUrlPair
     let naturalGiftType: String     //NameUrlPair
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case id
         case growthTime = "growth_time"
@@ -76,7 +72,6 @@ struct BerryFlavorMap: Decodable {
     let potency: Int
     let flavor: String              //NameUrlPair
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case potency
         case flavor
@@ -94,7 +89,6 @@ struct BerryFlavorMap: Decodable {
 
 /*** 2 ***/
 
-// Complete result typealias' here
 typealias BerryListResult = Result<BerryList, ServiceCallError>
 typealias BerryResult = Result<Berry, ServiceCallError>
 
@@ -114,8 +108,6 @@ final class BerryServiceClient {
         let parameters = ["offset": "\(0)", "limit": "\(64)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
-        // Write function body here (will make service call here)
-        // make service call, if no error, parse the data
         baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
@@ -123,11 +115,9 @@ final class BerryServiceClient {
                     completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
                     return
                 }
-                //print(berryList)
                 completion(.success(berryList))
                 
             case .failure(let error):
-                //print(error)
                 completion(.failure(error))
                 return
             }
@@ -141,7 +131,6 @@ final class BerryServiceClient {
         let parameters: [String: String] = [:]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
-        // Write function body here
         baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
@@ -149,11 +138,9 @@ final class BerryServiceClient {
                     completion(.failure(ServiceCallError(message: "Failed to parse JSON", code: nil)))
                     return
                 }
-                //print(berry)
                 completion(.success(berry))
                 
             case .failure(let error):
-                //print(error)
                 completion(.failure(error))
                 return
             }

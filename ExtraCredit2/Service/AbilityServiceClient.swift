@@ -1,13 +1,10 @@
 import Foundation
 
-#warning("Problems 5-8")
-
 /*** 5 ***/
 
 struct AbilityList: Decodable {
     let items: [URL]              //let results: [NameUrlPair]
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case items = "results"
     }
@@ -65,7 +62,6 @@ struct Name: Decodable {
     let language: String            //NameUrlPair
     let value: String               //let name: String
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case language
         case value = "name"
@@ -86,7 +82,6 @@ struct EffectEntry: Decodable {
     let language: String            //NameUrlPair
     let shortEffect: String?        // HINT: - decodeIfPresent
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case effect
         case language
@@ -109,7 +104,6 @@ struct EffectChange: Decodable {
     let effectEntries: [EffectEntry]
     let versionGroup: String        //NameUrlPair
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case effectEntries = "effect_entries"
         case versionGroup = "version_group"
@@ -130,7 +124,6 @@ struct FlavorTextEntry: Decodable {
     let language: String            //NameUrlPair
     let versionGroup: String        //NameUrlPair
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case flavorText = "flavor_text"
         case language
@@ -155,7 +148,6 @@ struct PokemonForAbility: Decodable {
     let pokemon: String             //NameUrlPair
     let slot: Int
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case isHidden = "is_hidden"
         case pokemon
@@ -176,7 +168,6 @@ struct PokemonForAbility: Decodable {
 
 /*** 6 ***/
 
-// Complete result typealias' here
 typealias AbilityListResult = Result<AbilityList, ServiceCallError>
 typealias AbilityResult = Result<Ability, ServiceCallError>
 
@@ -196,7 +187,6 @@ final class AbilityServiceClient {
         let parameters = ["offset": "\(0)", "limit": "\(293)"]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
-        // Write function body here
         baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
@@ -220,7 +210,6 @@ final class AbilityServiceClient {
         let parameters: [String: String] = [:]
         let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
-        // Write function body here
         baseServiceClient.get(from: url) { result in
             switch result {
             case .success(let data):
