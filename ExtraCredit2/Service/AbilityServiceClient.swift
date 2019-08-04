@@ -222,7 +222,8 @@ final class AbilityServiceClient {
 //        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
 //        print(url)
         
-        guard let url = URL(string: "https://pokeapi.co/api/v2/ability/3") else {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/ability/4") else {
+            print("URL not created")
             return
         }
         
