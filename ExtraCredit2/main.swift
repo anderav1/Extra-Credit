@@ -11,13 +11,6 @@ import Foundation
  
  */
 
-//let abilityPath = "/Users/avabc5/Desktop/Extra-Credit/ExtraCredit2/Reference/stench.json"
-//let abilityUrl = URL(fileURLWithPath: abilityPath)
-
-
-
-
-
 let baseServiceClient = BaseServiceClient()
 let urlProvider = UrlProvider(baseUrl: URL(string: "https://pokeapi.co/api/v2/")!)
 
