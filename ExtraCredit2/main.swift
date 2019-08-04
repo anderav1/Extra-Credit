@@ -49,13 +49,14 @@ let abilityServiceClient = AbilityServiceClient(baseServiceClient: baseServiceCl
 //    case .failure(let error): print(error); exit(1)
 //    }
 //}
-//
+
 abilityServiceClient.getAbility(id: 3) { result in
     switch result {
     case .success(let ability): print(ability); exit(0)
     case .failure(let error): print(error); exit(1)
     }
 }
+
 
 // WARNING: - DO NOT DELETE THE FOLLOWING LINE
 dispatchMain()

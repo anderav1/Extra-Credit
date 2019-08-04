@@ -31,7 +31,6 @@ struct Ability: Decodable {
     let flavorTextEntries: [FlavorTextEntry]
     let pokemon: [PokemonForAbility]
     
-    // Write CodingKeys and custom init(from decoder: Decoder) here
     private enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -44,16 +43,16 @@ struct Ability: Decodable {
         case pokemon
     }
     
-    init(for decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         isMainSeries = try values.decode(Bool.self, forKey: .isMainSeries)
-        
+
         let generationPair = try values.decode(NameUrlPair.self, forKey: .generation)
         generation = generationPair.name
-        
+
         names = try values.decode([Name].self, forKey: .names)
         effectEntries = try values.decode([EffectEntry].self, forKey: .effectEntries)
         effectChanges = try values.decode([EffectChange].self, forKey: .effectChanges)
@@ -217,15 +216,9 @@ final class AbilityServiceClient {
     /*** 8 ***/
     
     func getAbility(id: Int, completion: @escaping (AbilityResult) -> ()) {
-//        let pathComponents = ["ability", "\(id)"]
-//        let parameters: [String: String] = [:]
-//        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
-//        print(url)
-        
-        guard let url = URL(string: "https://pokeapi.co/api/v2/ability/4") else {
-            print("URL not created")
-            return
-        }
+        let pathComponents = ["ability", "\(id)"]
+        let parameters: [String: String] = [:]
+        let url = urlProvider.url(forPathComponents: pathComponents, parameters: parameters)
         
         // Write function body here
         baseServiceClient.get(from: url) { result in

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.014348"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.014619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "getAbility(id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/main.swift"
+            timestampString = "586652710.014752"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/main.swift"
+                  timestampString = "586652280.107371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "678">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;ExtraCredit2.Ability, ExtraCredit2.ServiceCallError&gt;) -&gt; () in ExtraCredit2"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/main.swift"
+                  timestampString = "586652280.1322761"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.015951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.Name.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.Name"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.226614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "185">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.Name.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.Name"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.2514189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "1106">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.016125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.EffectEntry.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.EffectEntry"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.4024841"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "205">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.EffectEntry.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.EffectEntry"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.464047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "1429">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.016318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.EffectChange.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.EffectChange"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.528056"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.EffectChange.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.EffectChange"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.547864"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "1122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.016499"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.FlavorTextEntry.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.FlavorTextEntry"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.7190419"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "215"
+                  endingLineNumber = "215"
+                  offsetFromSymbolStart = "245">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.FlavorTextEntry.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.FlavorTextEntry"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.742486"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ExtraCredit2/Service/AbilityServiceClient.swift"
+            timestampString = "586652710.016662"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.PokemonForAbility.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.PokemonForAbility"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.790729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ExtraCredit2.PokemonForAbility.init(from: Swift.Decoder) throws -&gt; ExtraCredit2.PokemonForAbility"
+                  moduleName = "ExtraCredit2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexianderson/Desktop/Extra-Credit/ExtraCredit2/Service/AbilityServiceClient.swift"
+                  timestampString = "586652280.900229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "1296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
